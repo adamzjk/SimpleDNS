@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/Adam/AdamPython/dns/cmake-build-debug"/>
+				<Option working_dir="/Users/Adam/GitHub/SimpleDNS/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/Adam/AdamPython/dns/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/Adam/AdamPython/dns/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/Adam/AdamPython/dns/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/Adam/AdamPython/dns/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/Users/Adam/AdamPython/dns/cmake-build-debug"/>
+				<Option working_dir="/Users/Adam/GitHub/SimpleDNS/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/Adam/AdamPython/dns/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/Adam/AdamPython/dns/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/Adam/AdamPython/dns/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/Adam/AdamPython/dns/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/Users/Adam/AdamPython/dns/cmake-build-debug"/>
+				<Option working_dir="/Users/Adam/GitHub/SimpleDNS/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/Adam/AdamPython/dns/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/Adam/AdamPython/dns/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/Adam/AdamPython/dns/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/Adam/AdamPython/dns/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="dns">
-				<Option output="/Users/Adam/AdamPython/dns/cmake-build-debug/dns" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/Adam/AdamPython/dns/cmake-build-debug"/>
+				<Option output="/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/dns" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Adam/GitHub/SimpleDNS/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -53,15 +53,15 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/Adam/AdamPython/dns/cmake-build-debug/Makefile&quot;  VERBOSE=1 dns"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/Adam/AdamPython/dns/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/Adam/AdamPython/dns/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/Adam/AdamPython/dns/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/Makefile&quot;  VERBOSE=1 dns"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="dns/fast">
-				<Option output="/Users/Adam/AdamPython/dns/cmake-build-debug/dns" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/Adam/AdamPython/dns/cmake-build-debug"/>
+				<Option output="/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/dns" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Adam/GitHub/SimpleDNS/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -75,44 +75,44 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/Adam/AdamPython/dns/cmake-build-debug/Makefile&quot;  VERBOSE=1 dns/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/Adam/AdamPython/dns/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/Adam/AdamPython/dns/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/Adam/AdamPython/dns/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/Makefile&quot;  VERBOSE=1 dns/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/Adam/AdamPython/dns/Config.h">
+		<Unit filename="/Users/Adam/GitHub/SimpleDNS/Config.h">
 			<Option target="dns"/>
 		</Unit>
-		<Unit filename="/Users/Adam/AdamPython/dns/DnsServer.h">
+		<Unit filename="/Users/Adam/GitHub/SimpleDNS/DnsServer.h">
 			<Option target="dns"/>
 		</Unit>
-		<Unit filename="/Users/Adam/AdamPython/dns/Header.cpp">
+		<Unit filename="/Users/Adam/GitHub/SimpleDNS/Header.cpp">
 			<Option target="dns"/>
 		</Unit>
-		<Unit filename="/Users/Adam/AdamPython/dns/Message.cpp">
+		<Unit filename="/Users/Adam/GitHub/SimpleDNS/Message.cpp">
 			<Option target="dns"/>
 		</Unit>
-		<Unit filename="/Users/Adam/AdamPython/dns/Name.cpp">
+		<Unit filename="/Users/Adam/GitHub/SimpleDNS/Name.cpp">
 			<Option target="dns"/>
 		</Unit>
-		<Unit filename="/Users/Adam/AdamPython/dns/Network.cpp">
+		<Unit filename="/Users/Adam/GitHub/SimpleDNS/Network.cpp">
 			<Option target="dns"/>
 		</Unit>
-		<Unit filename="/Users/Adam/AdamPython/dns/Question.cpp">
+		<Unit filename="/Users/Adam/GitHub/SimpleDNS/Question.cpp">
 			<Option target="dns"/>
 		</Unit>
-		<Unit filename="/Users/Adam/AdamPython/dns/Resolver.cpp">
+		<Unit filename="/Users/Adam/GitHub/SimpleDNS/Resolver.cpp">
 			<Option target="dns"/>
 		</Unit>
-		<Unit filename="/Users/Adam/AdamPython/dns/ResourceRecord.cpp">
+		<Unit filename="/Users/Adam/GitHub/SimpleDNS/ResourceRecord.cpp">
 			<Option target="dns"/>
 		</Unit>
-		<Unit filename="/Users/Adam/AdamPython/dns/main.cpp">
+		<Unit filename="/Users/Adam/GitHub/SimpleDNS/main.cpp">
 			<Option target="dns"/>
 		</Unit>
-		<Unit filename="/Users/Adam/AdamPython/dns/CMakeLists.txt">
+		<Unit filename="/Users/Adam/GitHub/SimpleDNS/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

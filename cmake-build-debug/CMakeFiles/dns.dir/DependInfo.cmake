@@ -4,14 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/Adam/AdamPython/dns/Header.cpp" "/Users/Adam/AdamPython/dns/cmake-build-debug/CMakeFiles/dns.dir/Header.cpp.o"
-  "/Users/Adam/AdamPython/dns/Message.cpp" "/Users/Adam/AdamPython/dns/cmake-build-debug/CMakeFiles/dns.dir/Message.cpp.o"
-  "/Users/Adam/AdamPython/dns/Name.cpp" "/Users/Adam/AdamPython/dns/cmake-build-debug/CMakeFiles/dns.dir/Name.cpp.o"
-  "/Users/Adam/AdamPython/dns/Network.cpp" "/Users/Adam/AdamPython/dns/cmake-build-debug/CMakeFiles/dns.dir/Network.cpp.o"
-  "/Users/Adam/AdamPython/dns/Question.cpp" "/Users/Adam/AdamPython/dns/cmake-build-debug/CMakeFiles/dns.dir/Question.cpp.o"
-  "/Users/Adam/AdamPython/dns/Resolver.cpp" "/Users/Adam/AdamPython/dns/cmake-build-debug/CMakeFiles/dns.dir/Resolver.cpp.o"
-  "/Users/Adam/AdamPython/dns/ResourceRecord.cpp" "/Users/Adam/AdamPython/dns/cmake-build-debug/CMakeFiles/dns.dir/ResourceRecord.cpp.o"
-  "/Users/Adam/AdamPython/dns/main.cpp" "/Users/Adam/AdamPython/dns/cmake-build-debug/CMakeFiles/dns.dir/main.cpp.o"
+  "/Users/Adam/GitHub/SimpleDNS/Header.cpp" "/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/CMakeFiles/dns.dir/Header.cpp.o"
+  "/Users/Adam/GitHub/SimpleDNS/Message.cpp" "/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/CMakeFiles/dns.dir/Message.cpp.o"
+  "/Users/Adam/GitHub/SimpleDNS/Name.cpp" "/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/CMakeFiles/dns.dir/Name.cpp.o"
+  "/Users/Adam/GitHub/SimpleDNS/Network.cpp" "/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/CMakeFiles/dns.dir/Network.cpp.o"
+  "/Users/Adam/GitHub/SimpleDNS/Question.cpp" "/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/CMakeFiles/dns.dir/Question.cpp.o"
+  "/Users/Adam/GitHub/SimpleDNS/Resolver.cpp" "/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/CMakeFiles/dns.dir/Resolver.cpp.o"
+  "/Users/Adam/GitHub/SimpleDNS/ResourceRecord.cpp" "/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/CMakeFiles/dns.dir/ResourceRecord.cpp.o"
+  "/Users/Adam/GitHub/SimpleDNS/main.cpp" "/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/CMakeFiles/dns.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
