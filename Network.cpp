@@ -62,6 +62,7 @@ struct in_addr resolveHostName(const std::string& name)
     return ip;
 }
 
+
 UdpSocket::UdpSocket()
 {
     memset(&_sin, 0, sizeof(_sin));
@@ -113,14 +114,12 @@ ssize_t UdpSocket::read(unsigned char* buf, size_t size, int timeout)
     FD_SET(_socket, &fds);
     
     int rc = ::select(sizeof(fds)*8, &fds, NULL, NULL, &tv);
-    if(rc > 0 && FD_ISSET(_socket, &fds))
-    {
-	    struct sockaddr_in sin;
-	    memset(&sin, 0, sizeof(sin));
-	    socklen_t len = sizeof(sin);
-		return ::recvfrom(_socket, buf, size, 0, (struct sockaddr*)&sin, &len);
-	}
-	
+    if(rc > 0 && FD_ISSET(_socket, &fds)) {
+        struct sockaddr_in sin;
+        memset(&sin, 0, sizeof(sin));
+        socklen_t len = sizeof(sin);
+        return ::recvfrom(_socket, buf, size, 0, (struct sockaddr *) &sin, &len);
+    }
 	return -1;
 }
 

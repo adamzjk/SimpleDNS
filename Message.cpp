@@ -23,11 +23,11 @@ void dns::Message::clearList()
 void dns::Message::addQuestion(const std::string& qname, unsigned short qtype)
 {
 	msg_header.idset();
-	msg_header.rdset(true); // set question = True
+	msg_header.rdset(true); // !!!!!!!!!! set question = True!!!
 	
 	dns::Question* question = new dns::Question(qname, qtype);
 	questions.push_back(question);
-	msg_header.qdinc();
+	msg_header.qdinc(); // add 1 to question number!
 }
 
 // Encode a request packet to buffer
@@ -138,7 +138,8 @@ std::string dns::Message::toString()
     return oss.str();
 }
 
-std::string dns::Message::getOneAddress() {
+std::string dns::Message::getOneAddress()
+{
     std::ostringstream oss;
     std::list<dns::ResourceRecord*>::iterator it = resources.begin();
     dns::ResourceRecord* rr = *it;
@@ -149,6 +150,19 @@ std::string dns::Message::getOneAddress() {
     return oss.str();
 }
 
+//
+//std::list<std::string> dns::Message::getAddress()
+//{
+//    std::ostringstream oss;
+//    std::list<std::string> ans;
+//    for(std::list<dns::Question*>::iterator it = questions.begin(); it != questions.end(); ++it)
+//    {
+//        dns::Question* q = *it;
+//        if(q != NULL)
+//            ans.append(q->toString());
+//    }
+//    return ans;
+//}
 
 
 

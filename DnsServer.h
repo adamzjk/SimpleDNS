@@ -205,7 +205,7 @@ protected:
 class Message
 {
 //    +---------------------+
-//    |        msg_header       |
+//    |        msg_header   |
 //    +---------------------+
 //    |       Question      | the question for the rr_name server
 //    +---------------------+
@@ -217,7 +217,7 @@ class Message
 //    +---------------------+
 public:
     Message(){};
-    Message(const std::string& qname, unsigned short qtype){addQuestion(qname, qtype);};
+    Message(const std::string& qname, unsigned short qtype){ addQuestion(qname, qtype); };
     virtual ~Message(){};
 
     void    addQuestion(const std::string& qname, unsigned short qtype); // append questions
@@ -228,6 +228,7 @@ public:
     inline dns::Header& header() {return msg_header; };
     std::string toString(); // convert to string
     std::string getOneAddress(); // return one from possible many address
+//    std::list<std::string> dns::Message::getAddress();
 
 protected:
     dns::Header msg_header;

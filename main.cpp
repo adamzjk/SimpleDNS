@@ -28,7 +28,7 @@ int getResponce(const char *domain, unsigned char *buffer, size_t *size)
 
 int main (int argc, const char * argv[])
 {
-    std::cout<< getDomaimAddress("www.bupt.edu.cn");
+    std::cout<< getDomaimAddress("baidu.com");
     return 0;
 }
 

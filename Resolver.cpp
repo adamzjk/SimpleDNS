@@ -82,7 +82,7 @@ bool dns::Resolver::resolve(dns::Message& query, dns::Message& response, unsigne
     size_t size_in = 0;
 
     // 3, Write - Sent - Read - Resolve
-    bool bRet = false;
+    bool complete = false;
     for (int i = 0; i < DEFAULT_RETRY_TIMES; i++)
     {   // 3.1 Write & Sent
         if (m_socket.write(buf_out, (size_t)size_out) <= 0)
@@ -100,9 +100,9 @@ bool dns::Resolver::resolve(dns::Message& query, dns::Message& response, unsigne
                 memcpy(buf, buf_in, size_in);
                 *size = size_in;
             }
-            bRet = true;
+            complete = true;
             break;
         }
     }
-    return bRet;
+    return complete;
 }
