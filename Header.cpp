@@ -27,7 +27,7 @@ unsigned short dns::Header::idset(unsigned short id /*= 0*/)
 	}
 	else if(m_id == 0)
     {
-        m_id =rand() % (65535 + 1);
+        m_id = rand() % (65535 + 1);
     }
     
     return m_id;
@@ -43,8 +43,8 @@ int dns::Header::toBuffer(unsigned char* buf, size_t size)
         uint16_t* p = (uint16_t*)buf;
         *(p++) = htons(m_id);
         *(p++) = flag;
-        *(p++) = htons(m_qdcount);
-        *(p++) = htons(m_ancount);
+        *(p++) = htons(m_qdcount); // question count
+        *(p++) = htons(m_ancount); // answer count
         *(p++) = htons(m_nscount);
         *(p++) = htons(m_arcount);
         return HEADER_LENGTH;

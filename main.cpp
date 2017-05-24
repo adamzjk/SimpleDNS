@@ -2,10 +2,9 @@
 
 std::string getDomaimAddress(const char *domain)
 {
-
     dns::Message response;
     dns::Resolver resolver;
-    resolver.resolve("taobao.com", DNS_TYPE_A, response);
+    resolver.resolve(domain, DNS_TYPE_A, response);
     return response.getOneAddress();
 }
 
@@ -13,7 +12,7 @@ std::string getDomaimAddress(const std::string& domain)
 {
     dns::Message response;
     dns::Resolver resolver;
-    resolver.resolve("baidu.com", DNS_TYPE_A, response);
+    resolver.resolve(domain, DNS_TYPE_A, response);
     return response.getOneAddress();
 }
 

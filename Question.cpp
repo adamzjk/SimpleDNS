@@ -16,11 +16,6 @@ dns::Question::Question(const dns::Name& qname, unsigned short qtype, unsigned s
     
 }
 
-dns::Question::~Question()
-{
-    
-}
-
 std::string dns::Question::toString()
 {
     std::ostringstream oss;
@@ -30,24 +25,24 @@ std::string dns::Question::toString()
 
 int dns::Question::toBuffer(unsigned char *buf, size_t size)
 {   
-    int nLen = -1;
+    int filled_length = -1;
     
     // Encode name
-    nLen = m_name.toBuffer(buf, size);
-    if (nLen <= 0)
+    filled_length = m_name.toBuffer(buf, size);
+    if (filled_length <= 0)
     {
-        //Error
+        return -1;
     }
     else
     {
         // Copy type and class
-        *(uint16_t*)(buf + nLen) = htons(m_type);
-        nLen += 2;
-        *(uint16_t*)(buf + nLen) = htons(m_class);
-        nLen += 2;
+        *(uint16_t*)(buf + filled_length) = htons(m_type);
+        filled_length += 2;
+        *(uint16_t*)(buf + filled_length) = htons(m_class);
+        filled_length += 2;
     }
     
-    return nLen;
+    return filled_length;
 }
 
 // From buffer
@@ -59,7 +54,7 @@ dns::Question* dns::Question::fromBuffer(unsigned char* buf, size_t size, size_t
     dns::Name name;
     if (!name.fromBuffer(buf, size, offset))
     {
-        //Error log
+        return NULL;
     }
     else
     {

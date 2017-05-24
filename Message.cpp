@@ -2,7 +2,7 @@
 
 void dns::Message::clearList()
 {
-    // empty all questions adn resource records
+    // empty all questions and resource records
     for(std::list<dns::Question*>::iterator it = m_questions.begin(); it != m_questions.end(); ++it)
     {
         dns::Question* p = *it;
@@ -30,23 +30,23 @@ void dns::Message::addQuestion(const std::string& qname, unsigned short qtype)
 	m_header.qdinc();
 }
 
-// Encode a request packet
+// Encode a request packet to buffer
 int dns::Message::toBuffer(unsigned char *buf, size_t size)
 {
     assert(!header().qr()); // assert it is a query
-    int nRet = -1;
+    int filled_size = -1;
     memset(buf, 0, size);
     
     // Header
-    nRet = m_header.toBuffer(buf, size);
-    if (nRet <= 0)
+    filled_size = m_header.toBuffer(buf, size);
+    if (filled_size <= 0)
     {
         std::cout << "Encoding header error." << std::endl;
     }
     else
     {        
-        size -= nRet;
-        buf += nRet;    
+        size -= filled_size;
+        buf += filled_size; // slide
     
         // Questions
         for (std::list<dns::Question*>::iterator it = m_questions.begin(); it != m_questions.end(); ++it) 
@@ -58,11 +58,11 @@ int dns::Message::toBuffer(unsigned char *buf, size_t size)
                 std::cout << "Encoding question error. " << std::endl; 
             }
             else
-                nRet += nLen;
+                filled_size += nLen;
                 buf += nLen;
         }
     }
-    return nRet;
+    return filled_size; // return filled size of the buffer
 }
 
 // Decode a response packet

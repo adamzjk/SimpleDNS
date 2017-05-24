@@ -62,12 +62,13 @@ bool dns::Resolver::resolve(dns::Message& query, dns::Message& response)
     return bRet;
 }*/
 
+// !!!
 bool dns::Resolver::resolve(dns::Message& query, dns::Message& response, unsigned char *buf, size_t *size)
 {
     // Output request packet for debug
     //std::cout << query.toString();
 
-    // Buffer for request packet
+    // 1, Make buffer for request packet
     unsigned char buf_out[MAX_DNS_PACKET_SIZE];
     int size_out = query.toBuffer(buf_out, MAX_DNS_PACKET_SIZE);
     if (size_out <= 0)
@@ -76,20 +77,21 @@ bool dns::Resolver::resolve(dns::Message& query, dns::Message& response, unsigne
         return false;
     }
 
-    // Buffer for response packet
+    // 2, Prepare buffer for response packet
     unsigned char buf_in[MAX_DNS_PACKET_SIZE];
     size_t size_in = 0;
 
-    // Retry to send until receive response packet
+    // 3, Write - Sent - Read - Resolve
     bool bRet = false;
     for (int i = 0; i < DEFAULT_RETRY_TIMES; i++)
-    {
+    {   // 3.1 Write & Sent
         if (m_socket.write(buf_out, (size_t)size_out) <= 0)
         {
             std::cout << "Send query message error." << std::endl;
             continue;
         }
 
+        // 3.2 Read & Resolve
         size_in = (size_t) m_socket.read(buf_in, MAX_DNS_PACKET_SIZE, DEFAULT_SOCKET_TIMEOUT);
         if(size_in > 0 && response.fromBuffer(buf_in, size_in))
         {

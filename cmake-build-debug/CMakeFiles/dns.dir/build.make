@@ -43,10 +43,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/Adam/GitHub/SimpleDNS
+CMAKE_SOURCE_DIR = /Users/Adam/AdamGithub/SimpleDNS
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/Adam/GitHub/SimpleDNS/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/Adam/AdamGithub/SimpleDNS/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/dns.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/dns.dir/flags.make
 
 CMakeFiles/dns.dir/main.cpp.o: CMakeFiles/dns.dir/flags.make
 CMakeFiles/dns.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/dns.dir/main.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dns.dir/main.cpp.o -c /Users/Adam/GitHub/SimpleDNS/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Adam/AdamGithub/SimpleDNS/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/dns.dir/main.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dns.dir/main.cpp.o -c /Users/Adam/AdamGithub/SimpleDNS/main.cpp
 
 CMakeFiles/dns.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dns.dir/main.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Adam/GitHub/SimpleDNS/main.cpp > CMakeFiles/dns.dir/main.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Adam/AdamGithub/SimpleDNS/main.cpp > CMakeFiles/dns.dir/main.cpp.i
 
 CMakeFiles/dns.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dns.dir/main.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Adam/GitHub/SimpleDNS/main.cpp -o CMakeFiles/dns.dir/main.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Adam/AdamGithub/SimpleDNS/main.cpp -o CMakeFiles/dns.dir/main.cpp.s
 
 CMakeFiles/dns.dir/main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/dns.dir/main.cpp.o.provides.build: CMakeFiles/dns.dir/main.cpp.o
 
 CMakeFiles/dns.dir/Header.cpp.o: CMakeFiles/dns.dir/flags.make
 CMakeFiles/dns.dir/Header.cpp.o: ../Header.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/dns.dir/Header.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dns.dir/Header.cpp.o -c /Users/Adam/GitHub/SimpleDNS/Header.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Adam/AdamGithub/SimpleDNS/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/dns.dir/Header.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dns.dir/Header.cpp.o -c /Users/Adam/AdamGithub/SimpleDNS/Header.cpp
 
 CMakeFiles/dns.dir/Header.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dns.dir/Header.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Adam/GitHub/SimpleDNS/Header.cpp > CMakeFiles/dns.dir/Header.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Adam/AdamGithub/SimpleDNS/Header.cpp > CMakeFiles/dns.dir/Header.cpp.i
 
 CMakeFiles/dns.dir/Header.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dns.dir/Header.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Adam/GitHub/SimpleDNS/Header.cpp -o CMakeFiles/dns.dir/Header.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Adam/AdamGithub/SimpleDNS/Header.cpp -o CMakeFiles/dns.dir/Header.cpp.s
 
 CMakeFiles/dns.dir/Header.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/dns.dir/Header.cpp.o.provides.build: CMakeFiles/dns.dir/Header.cpp.o
 
 CMakeFiles/dns.dir/Message.cpp.o: CMakeFiles/dns.dir/flags.make
 CMakeFiles/dns.dir/Message.cpp.o: ../Message.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/dns.dir/Message.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dns.dir/Message.cpp.o -c /Users/Adam/GitHub/SimpleDNS/Message.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Adam/AdamGithub/SimpleDNS/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/dns.dir/Message.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dns.dir/Message.cpp.o -c /Users/Adam/AdamGithub/SimpleDNS/Message.cpp
 
 CMakeFiles/dns.dir/Message.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dns.dir/Message.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Adam/GitHub/SimpleDNS/Message.cpp > CMakeFiles/dns.dir/Message.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Adam/AdamGithub/SimpleDNS/Message.cpp > CMakeFiles/dns.dir/Message.cpp.i
 
 CMakeFiles/dns.dir/Message.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dns.dir/Message.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Adam/GitHub/SimpleDNS/Message.cpp -o CMakeFiles/dns.dir/Message.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Adam/AdamGithub/SimpleDNS/Message.cpp -o CMakeFiles/dns.dir/Message.cpp.s
 
 CMakeFiles/dns.dir/Message.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/dns.dir/Message.cpp.o.provides.build: CMakeFiles/dns.dir/Message.cpp.
 
 CMakeFiles/dns.dir/Name.cpp.o: CMakeFiles/dns.dir/flags.make
 CMakeFiles/dns.dir/Name.cpp.o: ../Name.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/dns.dir/Name.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dns.dir/Name.cpp.o -c /Users/Adam/GitHub/SimpleDNS/Name.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Adam/AdamGithub/SimpleDNS/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/dns.dir/Name.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dns.dir/Name.cpp.o -c /Users/Adam/AdamGithub/SimpleDNS/Name.cpp
 
 CMakeFiles/dns.dir/Name.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dns.dir/Name.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Adam/GitHub/SimpleDNS/Name.cpp > CMakeFiles/dns.dir/Name.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Adam/AdamGithub/SimpleDNS/Name.cpp > CMakeFiles/dns.dir/Name.cpp.i
 
 CMakeFiles/dns.dir/Name.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dns.dir/Name.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Adam/GitHub/SimpleDNS/Name.cpp -o CMakeFiles/dns.dir/Name.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Adam/AdamGithub/SimpleDNS/Name.cpp -o CMakeFiles/dns.dir/Name.cpp.s
 
 CMakeFiles/dns.dir/Name.cpp.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/dns.dir/Name.cpp.o.provides.build: CMakeFiles/dns.dir/Name.cpp.o
 
 CMakeFiles/dns.dir/Network.cpp.o: CMakeFiles/dns.dir/flags.make
 CMakeFiles/dns.dir/Network.cpp.o: ../Network.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/dns.dir/Network.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dns.dir/Network.cpp.o -c /Users/Adam/GitHub/SimpleDNS/Network.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Adam/AdamGithub/SimpleDNS/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/dns.dir/Network.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dns.dir/Network.cpp.o -c /Users/Adam/AdamGithub/SimpleDNS/Network.cpp
 
 CMakeFiles/dns.dir/Network.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dns.dir/Network.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Adam/GitHub/SimpleDNS/Network.cpp > CMakeFiles/dns.dir/Network.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Adam/AdamGithub/SimpleDNS/Network.cpp > CMakeFiles/dns.dir/Network.cpp.i
 
 CMakeFiles/dns.dir/Network.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dns.dir/Network.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Adam/GitHub/SimpleDNS/Network.cpp -o CMakeFiles/dns.dir/Network.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Adam/AdamGithub/SimpleDNS/Network.cpp -o CMakeFiles/dns.dir/Network.cpp.s
 
 CMakeFiles/dns.dir/Network.cpp.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/dns.dir/Network.cpp.o.provides.build: CMakeFiles/dns.dir/Network.cpp.
 
 CMakeFiles/dns.dir/Question.cpp.o: CMakeFiles/dns.dir/flags.make
 CMakeFiles/dns.dir/Question.cpp.o: ../Question.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/dns.dir/Question.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dns.dir/Question.cpp.o -c /Users/Adam/GitHub/SimpleDNS/Question.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Adam/AdamGithub/SimpleDNS/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/dns.dir/Question.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dns.dir/Question.cpp.o -c /Users/Adam/AdamGithub/SimpleDNS/Question.cpp
 
 CMakeFiles/dns.dir/Question.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dns.dir/Question.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Adam/GitHub/SimpleDNS/Question.cpp > CMakeFiles/dns.dir/Question.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Adam/AdamGithub/SimpleDNS/Question.cpp > CMakeFiles/dns.dir/Question.cpp.i
 
 CMakeFiles/dns.dir/Question.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dns.dir/Question.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Adam/GitHub/SimpleDNS/Question.cpp -o CMakeFiles/dns.dir/Question.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Adam/AdamGithub/SimpleDNS/Question.cpp -o CMakeFiles/dns.dir/Question.cpp.s
 
 CMakeFiles/dns.dir/Question.cpp.o.requires:
 
@@ -203,16 +203,16 @@ CMakeFiles/dns.dir/Question.cpp.o.provides.build: CMakeFiles/dns.dir/Question.cp
 
 CMakeFiles/dns.dir/Resolver.cpp.o: CMakeFiles/dns.dir/flags.make
 CMakeFiles/dns.dir/Resolver.cpp.o: ../Resolver.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/dns.dir/Resolver.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dns.dir/Resolver.cpp.o -c /Users/Adam/GitHub/SimpleDNS/Resolver.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Adam/AdamGithub/SimpleDNS/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/dns.dir/Resolver.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dns.dir/Resolver.cpp.o -c /Users/Adam/AdamGithub/SimpleDNS/Resolver.cpp
 
 CMakeFiles/dns.dir/Resolver.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dns.dir/Resolver.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Adam/GitHub/SimpleDNS/Resolver.cpp > CMakeFiles/dns.dir/Resolver.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Adam/AdamGithub/SimpleDNS/Resolver.cpp > CMakeFiles/dns.dir/Resolver.cpp.i
 
 CMakeFiles/dns.dir/Resolver.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dns.dir/Resolver.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Adam/GitHub/SimpleDNS/Resolver.cpp -o CMakeFiles/dns.dir/Resolver.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Adam/AdamGithub/SimpleDNS/Resolver.cpp -o CMakeFiles/dns.dir/Resolver.cpp.s
 
 CMakeFiles/dns.dir/Resolver.cpp.o.requires:
 
@@ -227,16 +227,16 @@ CMakeFiles/dns.dir/Resolver.cpp.o.provides.build: CMakeFiles/dns.dir/Resolver.cp
 
 CMakeFiles/dns.dir/ResourceRecord.cpp.o: CMakeFiles/dns.dir/flags.make
 CMakeFiles/dns.dir/ResourceRecord.cpp.o: ../ResourceRecord.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/dns.dir/ResourceRecord.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dns.dir/ResourceRecord.cpp.o -c /Users/Adam/GitHub/SimpleDNS/ResourceRecord.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Adam/AdamGithub/SimpleDNS/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/dns.dir/ResourceRecord.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dns.dir/ResourceRecord.cpp.o -c /Users/Adam/AdamGithub/SimpleDNS/ResourceRecord.cpp
 
 CMakeFiles/dns.dir/ResourceRecord.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dns.dir/ResourceRecord.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Adam/GitHub/SimpleDNS/ResourceRecord.cpp > CMakeFiles/dns.dir/ResourceRecord.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Adam/AdamGithub/SimpleDNS/ResourceRecord.cpp > CMakeFiles/dns.dir/ResourceRecord.cpp.i
 
 CMakeFiles/dns.dir/ResourceRecord.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dns.dir/ResourceRecord.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Adam/GitHub/SimpleDNS/ResourceRecord.cpp -o CMakeFiles/dns.dir/ResourceRecord.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Adam/AdamGithub/SimpleDNS/ResourceRecord.cpp -o CMakeFiles/dns.dir/ResourceRecord.cpp.s
 
 CMakeFiles/dns.dir/ResourceRecord.cpp.o.requires:
 
@@ -273,7 +273,7 @@ dns: CMakeFiles/dns.dir/Resolver.cpp.o
 dns: CMakeFiles/dns.dir/ResourceRecord.cpp.o
 dns: CMakeFiles/dns.dir/build.make
 dns: CMakeFiles/dns.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/Adam/GitHub/SimpleDNS/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable dns"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/Adam/AdamGithub/SimpleDNS/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable dns"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dns.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -297,6 +297,6 @@ CMakeFiles/dns.dir/clean:
 .PHONY : CMakeFiles/dns.dir/clean
 
 CMakeFiles/dns.dir/depend:
-	cd /Users/Adam/GitHub/SimpleDNS/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/Adam/GitHub/SimpleDNS /Users/Adam/GitHub/SimpleDNS /Users/Adam/GitHub/SimpleDNS/cmake-build-debug /Users/Adam/GitHub/SimpleDNS/cmake-build-debug /Users/Adam/GitHub/SimpleDNS/cmake-build-debug/CMakeFiles/dns.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/Adam/AdamGithub/SimpleDNS/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/Adam/AdamGithub/SimpleDNS /Users/Adam/AdamGithub/SimpleDNS /Users/Adam/AdamGithub/SimpleDNS/cmake-build-debug /Users/Adam/AdamGithub/SimpleDNS/cmake-build-debug /Users/Adam/AdamGithub/SimpleDNS/cmake-build-debug/CMakeFiles/dns.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/dns.dir/depend
 

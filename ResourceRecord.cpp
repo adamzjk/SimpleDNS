@@ -54,7 +54,7 @@ bool ResourceRecord::fromBuffer(unsigned char* buf, size_t size, size_t &offset)
     {
         if(size - offset >= 4)
         {
-            m_ip = ntohl(*(uint32_t *)(buf+offset));
+            m_ip = ntohl(*(uint32_t *)(buf + offset));
             offset += 4;
             return true;
         }

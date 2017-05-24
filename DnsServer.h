@@ -35,14 +35,31 @@ DNS_BEGIN
 
 class Header
 {
+//    The header contains the following fields:
+//
+//            1  1  1  1  1  1
+//    0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+//    |                      ID                       |
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+//    |QR|   Opcode  |AA|TC|RD|RA|   Z    |   RCODE   |
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+//    |                    QDCOUNT                    |
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+//    |                    ANCOUNT                    |
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+//    |                    NSCOUNT                    |
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+//    |                    ARCOUNT                    |
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
 public:
     Header();
     virtual ~Header();
 
-    int toBuffer(unsigned char* buf, size_t size);
-    bool fromBuffer(unsigned char* buf, size_t size, size_t& offset);
-    std::string toString();
-    unsigned short idset(unsigned short id = 0);
+    int toBuffer(unsigned char* buf, size_t size); // write domain name into buffer
+    bool fromBuffer(unsigned char* buf, size_t size, size_t& offset); // read domain name from buffer
+    std::string toString(); // to std::string
+    unsigned short idset(unsigned short id = 0); // assign an ID
 
     void rdset(bool rd)         { m_flags.rd = rd;  }
     bool qr()                   { return m_flags.qr;}
@@ -51,30 +68,41 @@ public:
     unsigned short ancount()    { return m_ancount; }
 
 private:
-    unsigned short m_id;
-    unsigned short m_qdcount;
-    unsigned short m_ancount;
-    unsigned short m_nscount;
-    unsigned short m_arcount;
+    unsigned short m_id;        // identifier
+    unsigned short m_qdcount;   // num of questions
+    unsigned short m_ancount;   // num of resources
+    unsigned short m_nscount;   // num of authorative resources
+    unsigned short m_arcount;   // num of additional resources
 
     struct {
-        bool qr;
-        unsigned char opcode;
-        bool aa;
-        bool tc;
-        bool rd;
-        bool ra;
-        unsigned char z;
-        unsigned char rcode;
+        bool qr;                // query or responce
+        unsigned char opcode;   // kind of quert
+        bool aa;                // authorative answer
+        bool tc;                // TrunCation
+        bool rd;                // Recursion Desired
+        bool ra;                // Recursion Available
+        unsigned char z;        // --
+        unsigned char rcode;    // Response code(error etc.)
     } m_flags;
 
     // Encode and decode flags
-    void flag_dec(uint16_t flag);
-    uint16_t flag_enc();
+    void flag_dec(uint16_t flag); // decode from buffer
+    uint16_t flag_enc();          // encode to buffer
 };
 
 class Name
 {
+//    1  1  1  1  1  1
+//    0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+//    |                                               |
+//    /                     QNAME                     /
+//    /                                               /
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+//    |                     QTYPE                     |
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+//    |                     QCLASS                    |
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
 public:
     Name();
     Name(const char* name);
@@ -91,16 +119,36 @@ private:
     static const char *s_szValidChars;
     size_t m_length;
     std::list<std::string> m_parts;
-    void parse(std::string& name);
-    bool decode(unsigned char* buf, size_t size, size_t &offset,std::list<std::string>& parts, size_t &len);
+    void parse(std::string& name); // parse and decode are the MAIN
+    bool decode(unsigned char* buf, size_t size, size_t &offset,std::list<std::string>& results, size_t &len);
 };
 
 class Question
 {
+//    1  1  1  1  1  1
+//    0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+//    |                                               |
+//    /                                               /
+//    /                      NAME                     /
+//    |                                               |
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+//    |                      TYPE                     |
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+//    |                     CLASS                     |
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+//    |                      TTL                      |
+//    |                                               |
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+//    |                   RDLENGTH                    |
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--|
+//    /                     RDATA                     /
+//    /                                               /
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
 public:
     Question(const std::string& qname, unsigned short qtype);
     Question(const dns::Name& qname, unsigned short qtype, unsigned short qclass);
-    virtual ~Question();
+    virtual ~Question(){};
 
     std::string toString();
 
@@ -108,13 +156,34 @@ public:
     static Question* fromBuffer(unsigned char* buf, size_t size, size_t& offset);
 
 private:
-    dns::Name m_name;
-    unsigned short m_type;
-    unsigned short m_class;
+    dns::Name m_name;       // an owner name
+    unsigned short m_type;  // RR TYPE
+    unsigned short m_class; // RR CLASS
 };
 
 class ResourceRecord
 {
+//    1  1  1  1  1  1
+//    0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+//    |                                               |
+//    /                                               /
+//    /                      NAME                     /
+//    |                                               |
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+//    |                      TYPE                     |
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+//    |                     CLASS                     |
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+//    |                      TTL                      |
+//    |                                               |
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+//    |                   RDLENGTH                    |
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--|
+//    /                     RDATA                     /
+//    /                                               /
+//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+
 public:
     ResourceRecord(unsigned short rtype, unsigned short rdlen = 0);
     virtual ~ResourceRecord(){};
@@ -122,32 +191,43 @@ public:
     virtual std::string     toString(int debug = false);
 
 protected:
-    Name m_name;
-    unsigned short  m_type;
-    unsigned short  m_class;
-    unsigned int    m_ttl;
-    unsigned short  m_rdlen;
-    unsigned int    m_ip;
+    Name m_name;                // a domain name
+    unsigned short  m_type;     // RR type codes
+    unsigned short  m_class;    // class of the data
+    unsigned int    m_ttl;      // time to live
+    unsigned short  m_rdlen;    // length in octets of the RDATA field
+    unsigned int    m_ip;       // RDATA, which is a ip address
 
-    // Pack and unpack RDATA, redefined by derived class
+    // Pack and unpack RDATA, get m_ip
     bool dataFromBuffer(unsigned char* buf, size_t size, size_t& offset);
 };
 
 class Message
 {
+//    +---------------------+
+//    |        Header       |
+//    +---------------------+
+//    |       Question      | the question for the name server
+//    +---------------------+
+//    |        Answer       | RRs answering the question
+//    +---------------------+
+//    |      Authority      | RRs pointing toward an authority
+//    +---------------------+
+//    |      Additional     | RRs holding additional information
+//    +---------------------+
 public:
     Message(){};
     Message(const std::string& qname, unsigned short qtype){addQuestion(qname, qtype);};
     virtual ~Message(){};
 
-    void    addQuestion(const std::string& qname, unsigned short qtype);
-    int     toBuffer(unsigned char* buf, size_t size);
-    bool    fromBuffer(unsigned char* buf, size_t size);
+    void    addQuestion(const std::string& qname, unsigned short qtype); // append questions
+    int     toBuffer(unsigned char* buf, size_t size); // write into buffer
+    bool    fromBuffer(unsigned char* buf, size_t size); // read from buffer
 
 
     inline dns::Header& header() {return m_header; };
-    std::string toString();
-    std::string getOneAddress();
+    std::string toString(); // convert to string
+    std::string getOneAddress(); // return one from possible many address
 
 protected:
     dns::Header m_header;

@@ -41,13 +41,13 @@ void dns::Name::parse(std::string& name)
         else
         {
             // Divided domain into parts
-            m_length = name.length() + 1; // TODO WHY ADD 1 ?
+            m_length = name.length() + 1; // \0 is another byte
             if (name.length() > 0 && name != "")
             {
                 size_t last = name.rfind(".");
                 if (std::string::npos == last || (name.length() - 1) != last)
                 {
-                    name.append(".");
+                    name.append("."); // add . in the end
                     ++m_length;
                 }
             }
@@ -82,86 +82,86 @@ bool dns::Name::fromBuffer(unsigned char* buf, size_t size, size_t& offset)
 // if two high bits are 11, then the rest 6 bits and the following one byte is a pointer 
 // value of pointer is the offset from header
 // 
-bool dns::Name::decode(unsigned char* buf, size_t size, size_t &offset,std::list<std::string>& parts, size_t &len)
+bool dns::Name::decode(unsigned char* buf, size_t size, size_t &offset,std::list<std::string>& results, size_t &len)
 {
-    bool bRet = true;
+    bool no_error = true;
 
     for ( ; ; )
     {
         if (offset >= size)
         {
             // Error of beyond buffeR
-            bRet = false;
+            no_error = false;
             break;
         }
         
         // Length of next section
-        unsigned char nLen = buf[offset++];
+        unsigned char next_length = buf[offset++];
         
         // '/0' is the termination
-        if (nLen == 0)
+        if (next_length == 0)
         {
             break;
         }
 
         // Is a pointer of two bytes?
-        if (nLen > 63)
+        if (next_length > 63)
         {
-            if (nLen < 192 || offset == size)
+            if (next_length < 192 || offset == size)
             {
                 // Error of a compression pointer
-                bRet = false;
+                no_error = false;
                 break;
             }
-            size_t jump_to =(size_t) ((nLen & 63) << 8) + buf[offset++];
-            if (!decode(buf, size, jump_to, parts, len))
+            size_t jump_to =(size_t) ((next_length & 63) << 8) + buf[offset++];
+            if (!decode(buf, size, jump_to, results, len))
             {
                 // Error
-                bRet = false;
+                no_error = false;
             }
             break; // todo why break?
         }
-        len += nLen + 1; // todo why plus one??????
-        std::string part;
-        part.reserve(nLen);
-        for ( ; nLen > 0; --nLen, ++offset)
+        len += next_length + 1; // todo why plus one??????
+        std::string one_result;
+        one_result.reserve(next_length);
+        for ( ; next_length > 0; --next_length, ++offset)
         {
-            part.append(1, (char)tolower(buf[offset]));
+            one_result.append(1, (char)tolower(buf[offset]));
         }
         
-        parts.push_back(part);
+        results.push_back(one_result);
     }
     
-    return bRet;
+    return no_error;
 }
 
 // Encode domain name into a buffer
 // Multiple sections, character number followed by the characters in each section
 int dns::Name::toBuffer(unsigned char* buf, size_t size)
 {
-    int nLen = -1;
+    int filled_length = -1;
     
     if (size >= m_length)
     {
-        nLen = 0;        
+        filled_length = 0;
         for (std::list<std::string>::iterator it = m_parts.begin(); it != m_parts.end(); ++it)
         {
             std::string& p = *it;
             if (0 < p.size() && p != ".")
             {
                 //Length and following string
-                buf[nLen++] = (unsigned char) p.length();
-                for (unsigned int j = 0; j < p.length(); ++j)
+                buf[filled_length++] = (unsigned char) p.length();
+                for (unsigned int j = 0; j < p.length(); ++j) // write into buffer
                 {
-                    buf[nLen++] = (unsigned char) tolower(p.at(j));
+                    buf[filled_length++] = (unsigned char) tolower(p.at(j));
                 }
             }
         }
         // Termination
-        buf[nLen++] = 0;
+        buf[filled_length++] = 0;
     }
     
-    return nLen;
+    return filled_length;
 }
 
 std::string dns::Name::toString()
