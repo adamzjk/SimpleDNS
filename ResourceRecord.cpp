@@ -3,10 +3,10 @@
 DNS_BEGIN
 	
 ResourceRecord::ResourceRecord(unsigned short rtype, unsigned short rdlen)
-: m_type(rtype)
-, m_class(0)
-, m_ttl(0)
-, m_rdlen(rdlen) {}
+: rr_type(rtype)
+, rr_class(0)
+, rr_ttl(0)
+, rr_rdlen(rdlen) {}
 
 std::string ResourceRecord::toString(int debug)
 {
@@ -14,13 +14,13 @@ std::string ResourceRecord::toString(int debug)
     if(debug)
     {
         std::cout << "Resource Record: "
-                  << m_name.toString()
-                  << " m_type:" << m_type
-                  << " m_class:" << m_class
-                  << " m_ttl:" << m_ttl
-                  << " m_rdlen:" << m_rdlen;
+                  << rr_name.toString()
+                  << " rr_type:" << rr_type
+                  << " rr_class:" << rr_class
+                  << " rr_ttl:" << rr_ttl
+                  << " rr_rdlen:" << rr_rdlen;
     }
-    struct in_addr ia = {htonl(m_ip)};
+    struct in_addr ia = {htonl(ip_addr)};
     std::string ip = inet_ntoa(ia);
     oss << ip;
     return oss.str();
@@ -29,18 +29,18 @@ std::string ResourceRecord::toString(int debug)
 // From buffer
 bool ResourceRecord::fromBuffer(unsigned char* buf, size_t size, size_t &offset)
 {
-    // Header 
-    if (m_name.fromBuffer(buf, size, offset))
+    // msg_header
+    if (rr_name.fromBuffer(buf, size, offset))
     {       
         if (size - offset >= 10)
         {
-            m_type = ntohs(*(uint16_t*)(buf + offset));
+            rr_type = ntohs(*(uint16_t*)(buf + offset));
             offset += 2;
-            m_class = ntohs(*(uint16_t*)(buf + offset));
+            rr_class = ntohs(*(uint16_t*)(buf + offset));
             offset += 2;
-            m_ttl = ntohl(*(uint32_t*)(buf + offset));
+            rr_ttl = ntohl(*(uint32_t*)(buf + offset));
             offset += 4;
-            m_rdlen = ntohs(*(uint16_t*)(buf + offset));
+            rr_rdlen = ntohs(*(uint16_t*)(buf + offset));
             offset += 2;
             return dataFromBuffer(buf, size, offset);
         }
@@ -54,7 +54,7 @@ bool ResourceRecord::fromBuffer(unsigned char* buf, size_t size, size_t &offset)
     {
         if(size - offset >= 4)
         {
-            m_ip = ntohl(*(uint32_t *)(buf + offset));
+            ip_addr = ntohl(*(uint32_t *)(buf + offset));
             offset += 4;
             return true;
         }

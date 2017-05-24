@@ -53,7 +53,7 @@ typedef int socklen_t;
 #define DNS_TYPE_A      1
 #define DNS_CLASS_IN	1
 
-// Header
+// msg_header
 #define HEADER_LENGTH 12
 #define DNS_RESPONSE_NO_ERROR			0
 #define DNS_RESPONSE_FORMAT_ERROR 		1

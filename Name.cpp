@@ -22,21 +22,21 @@ dns::Name::Name(const dns::Name* name)
     }
 }
 
-// Parse a dot-divided name
+// Parse a dot-divided rr_name   string -> m_parts
 void dns::Name::parse(std::string& name)
 {
     try
     {
-        //Validate the name first
+        //Validate the rr_name first
         std::string sName = name;
         std::transform(sName.begin(), sName.end(), sName.begin(), ::tolower);
         if (sName.size() > 255)
         {
-            // Log error of too long name
+            std::cout << "error of tooooo loooog name";
         }
         else if (std::string::npos != sName.find_first_not_of(s_szValidChars, 0))
         {
-            // Log error of invalid characters
+            std::cout << "error of invalid characters";
         }
         else
         {
@@ -64,11 +64,11 @@ void dns::Name::parse(std::string& name)
     }
     catch (...)
     {
-        // Log error
+        std::cout << "some error";
     }
 }
 
-// Decode domain name into a string lsit
+// Decode domain rr_name into a string lsit
 // and create a new Name instance
 bool dns::Name::fromBuffer(unsigned char* buf, size_t size, size_t& offset)
 {
@@ -76,7 +76,7 @@ bool dns::Name::fromBuffer(unsigned char* buf, size_t size, size_t& offset)
 }
 
 //
-// Recursively decode the name in DNS packet
+// Recursively decode the rr_name in DNS packet
 // One byte followed by string
 // if two high bits are 00, then the rest 6 bits is the length of following string (0-63).
 // if two high bits are 11, then the rest 6 bits and the following one byte is a pointer 
@@ -86,56 +86,45 @@ bool dns::Name::decode(unsigned char* buf, size_t size, size_t &offset,std::list
 {
     bool no_error = true;
 
-    for ( ; ; )
-    {
-        if (offset >= size)
-        {
-            // Error of beyond buffeR
+    for ( ; ; ) {
+        if (offset >= size) {//beyond buffer
             no_error = false;
             break;
         }
-        
-        // Length of next section
+
         unsigned char next_length = buf[offset++];
-        
+
         // '/0' is the termination
-        if (next_length == 0)
-        {
+        if (next_length == 0) {
             break;
         }
 
-        // Is a pointer of two bytes?
-        if (next_length > 63)
-        {
-            if (next_length < 192 || offset == size)
-            {
-                // Error of a compression pointer
+        if (next_length > 63) { // pointer!
+            if (next_length < 192 || offset == size) {
+                // pointer error
                 no_error = false;
                 break;
             }
-            size_t jump_to =(size_t) ((next_length & 63) << 8) + buf[offset++];
-            if (!decode(buf, size, jump_to, results, len))
-            {
-                // Error
+            size_t jump_to = (size_t) ((next_length & 63) << 8) + buf[offset++];
+            if (!decode(buf, size, jump_to, results, len)) {
+                // Some error occurs ..
                 no_error = false;
             }
-            break; // todo why break?
+            break;
         }
-        len += next_length + 1; // todo why plus one??????
+
+        // normal situation
+        len += next_length + 1; // plus "\0"
         std::string one_result;
-        one_result.reserve(next_length);
-        for ( ; next_length > 0; --next_length, ++offset)
-        {
-            one_result.append(1, (char)tolower(buf[offset]));
-        }
-        
-        results.push_back(one_result);
+        one_result.reserve(next_length); // prepare some space
+        for (; next_length > 0; --next_length, ++offset)
+            one_result.append(1, (char) tolower(buf[offset])); // save result
+        results.push_back(one_result); // put into final result set
     }
-    
     return no_error;
 }
 
-// Encode domain name into a buffer
+// Encode domain rr_name into a buffer
 // Multiple sections, character number followed by the characters in each section
 int dns::Name::toBuffer(unsigned char* buf, size_t size)
 {
@@ -160,7 +149,6 @@ int dns::Name::toBuffer(unsigned char* buf, size_t size)
         // Termination
         buf[filled_length++] = 0;
     }
-    
     return filled_length;
 }
 

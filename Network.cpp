@@ -5,6 +5,7 @@
 
 NETWORK_BEGIN
 
+// for win32 only
 bool startup()
 {
 #ifdef _WIN32
@@ -34,7 +35,7 @@ void cleanup()
 #endif
 }
 
-
+// return host ip address
 struct in_addr resolveHostName(const std::string& name)
 {
     int retry = 5;
@@ -60,7 +61,6 @@ struct in_addr resolveHostName(const std::string& name)
     
     return ip;
 }
-
 
 UdpSocket::UdpSocket()
 {
@@ -95,11 +95,13 @@ UdpSocket::~UdpSocket()
 #endif
 }
 
+// send! return size of sent
 ssize_t UdpSocket::write(const unsigned char* buf, size_t size)
 {
 	return ::sendto(_socket, buf, size, 0, (struct sockaddr*)&_sin, sizeof(_sin));
 }
 
+// read from buffer
 ssize_t UdpSocket::read(unsigned char* buf, size_t size, int timeout)
 {
     struct timeval tv;

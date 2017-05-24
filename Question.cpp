@@ -27,7 +27,7 @@ int dns::Question::toBuffer(unsigned char *buf, size_t size)
 {   
     int filled_length = -1;
     
-    // Encode name
+    // Encode rr_name
     filled_length = m_name.toBuffer(buf, size);
     if (filled_length <= 0)
     {
@@ -50,7 +50,7 @@ dns::Question* dns::Question::fromBuffer(unsigned char* buf, size_t size, size_t
 {
     dns::Question* question = NULL;
     
-    //Parse name first
+    //Parse rr_name first
     dns::Name name;
     if (!name.fromBuffer(buf, size, offset))
     {

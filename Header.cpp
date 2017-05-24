@@ -80,7 +80,7 @@ std::string dns::Header::toString()
     std::ostringstream oss;
     if(m_flags.qr)
     {
-        oss << "// Header Response ";
+        oss << "// msg_header Response ";
         switch (m_flags.rcode) 
         {
             case DNS_RESPONSE_NO_ERROR:

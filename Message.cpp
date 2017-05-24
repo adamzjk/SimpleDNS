@@ -3,31 +3,31 @@
 void dns::Message::clearList()
 {
     // empty all questions and resource records
-    for(std::list<dns::Question*>::iterator it = m_questions.begin(); it != m_questions.end(); ++it)
+    for(std::list<dns::Question*>::iterator it = questions.begin(); it != questions.end(); ++it)
     {
         dns::Question* p = *it;
         if(p != NULL)
             delete p;
     }
-    m_questions.clear();
+    questions.clear();
     
-    for(std::list<dns::ResourceRecord*>::iterator it = m_answers.begin(); it != m_answers.end(); ++it)
+    for(std::list<dns::ResourceRecord*>::iterator it = resources.begin(); it != resources.end(); ++it)
     {
         dns::ResourceRecord* p = *it;
         if(p != NULL)
             delete p;
     }
-    m_answers.clear();
+    resources.clear();
 }
 
 void dns::Message::addQuestion(const std::string& qname, unsigned short qtype)
 {
-	m_header.idset();
-	m_header.rdset(true); // set question = True
+	msg_header.idset();
+	msg_header.rdset(true); // set question = True
 	
 	dns::Question* question = new dns::Question(qname, qtype);
-	m_questions.push_back(question);
-	m_header.qdinc();
+	questions.push_back(question);
+	msg_header.qdinc();
 }
 
 // Encode a request packet to buffer
@@ -37,8 +37,8 @@ int dns::Message::toBuffer(unsigned char *buf, size_t size)
     int filled_size = -1;
     memset(buf, 0, size);
     
-    // Header
-    filled_size = m_header.toBuffer(buf, size);
+    // msg_header
+    filled_size = msg_header.toBuffer(buf, size);
     if (filled_size <= 0)
     {
         std::cout << "Encoding header error." << std::endl;
@@ -49,7 +49,7 @@ int dns::Message::toBuffer(unsigned char *buf, size_t size)
         buf += filled_size; // slide
     
         // Questions
-        for (std::list<dns::Question*>::iterator it = m_questions.begin(); it != m_questions.end(); ++it) 
+        for (std::list<dns::Question*>::iterator it = questions.begin(); it != questions.end(); ++it)
         {
             int nLen = (*it)->toBuffer(buf, size);
             
@@ -70,8 +70,8 @@ bool dns::Message::fromBuffer(unsigned char* buf, size_t size)
 {
     bool bRet = true;
     size_t offset = 0;
-        
-    if (!m_header.fromBuffer(buf, size, offset))
+
+    if (!msg_header.fromBuffer(buf, size, offset))
     {
         std::cout << "Decode header error, offset: " << offset << std::endl;
         bRet = false;
@@ -80,9 +80,9 @@ bool dns::Message::fromBuffer(unsigned char* buf, size_t size)
     {
         // Question and answers pointer is relative to the end of header
         clearList();
-        
+
         // questions
-        for (int i = 0; bRet && i < m_header.qdcount(); ++i)
+        for (int i = 0; bRet && i < msg_header.qdcount(); ++i)
         {
             dns::Question* question = dns::Question::fromBuffer(buf, size, offset);
             if (question == NULL)
@@ -91,11 +91,11 @@ bool dns::Message::fromBuffer(unsigned char* buf, size_t size)
                 bRet = false;
             }
             else
-                m_questions.push_back(question);
+                questions.push_back(question);
         }
-        
+
         // answers
-        for (int i = 0; bRet && i < m_header.ancount(); ++i)
+        for (int i = 0; bRet && i < msg_header.ancount(); ++i)
         {
             //dns::ResourceRecord* rr = dns::RRFactory::fromBuffer(buf, size, offset);
             ResourceRecord* rr = new ResourceRecord(DNS_TYPE_A);
@@ -105,30 +105,30 @@ bool dns::Message::fromBuffer(unsigned char* buf, size_t size)
                 bRet = false;
             }
             else
-                m_answers.push_back(rr);
+                resources.push_back(rr);
         }
-        
+
         // In this implementation, we did not parse sections of authority and additional
         // so some data may be left in the buffer
         //assert(offset == size);
     }
-    
+
     return bRet;
 }
 
 std::string dns::Message::toString()
 {
     std::ostringstream oss;
-    oss << m_header.toString() << std::endl;
+    oss << msg_header.toString() << std::endl;
     
-    for(std::list<dns::Question*>::iterator it = m_questions.begin(); it != m_questions.end(); ++it)
+    for(std::list<dns::Question*>::iterator it = questions.begin(); it != questions.end(); ++it)
     {
         dns::Question* q = *it;
         if(q != NULL)
             oss << q->toString() << std::endl;
     }
     
-    for(std::list<dns::ResourceRecord*>::iterator it = m_answers.begin(); it != m_answers.end(); ++it)
+    for(std::list<dns::ResourceRecord*>::iterator it = resources.begin(); it != resources.end(); ++it)
     {
         dns::ResourceRecord* rr = *it;
         if(rr != NULL)
@@ -140,7 +140,7 @@ std::string dns::Message::toString()
 
 std::string dns::Message::getOneAddress() {
     std::ostringstream oss;
-    std::list<dns::ResourceRecord*>::iterator it = m_answers.begin();
+    std::list<dns::ResourceRecord*>::iterator it = resources.begin();
     dns::ResourceRecord* rr = *it;
     if(rr != NULL)
         oss << rr->toString(false) << std::endl;

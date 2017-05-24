@@ -56,8 +56,8 @@ public:
     Header();
     virtual ~Header();
 
-    int toBuffer(unsigned char* buf, size_t size); // write domain name into buffer
-    bool fromBuffer(unsigned char* buf, size_t size, size_t& offset); // read domain name from buffer
+    int toBuffer(unsigned char* buf, size_t size); // write domain rr_name into buffer
+    bool fromBuffer(unsigned char* buf, size_t size, size_t& offset); // read domain rr_name from buffer
     std::string toString(); // to std::string
     unsigned short idset(unsigned short id = 0); // assign an ID
 
@@ -156,7 +156,7 @@ public:
     static Question* fromBuffer(unsigned char* buf, size_t size, size_t& offset);
 
 private:
-    dns::Name m_name;       // an owner name
+    dns::Name m_name;       // an owner rr_name
     unsigned short m_type;  // RR TYPE
     unsigned short m_class; // RR CLASS
 };
@@ -191,23 +191,23 @@ public:
     virtual std::string     toString(int debug = false);
 
 protected:
-    Name m_name;                // a domain name
-    unsigned short  m_type;     // RR type codes
-    unsigned short  m_class;    // class of the data
-    unsigned int    m_ttl;      // time to live
-    unsigned short  m_rdlen;    // length in octets of the RDATA field
-    unsigned int    m_ip;       // RDATA, which is a ip address
+    Name rr_name;                // a domain name
+    unsigned short  rr_type;     // RR type codes
+    unsigned short  rr_class;    // class of the data
+    unsigned int    rr_ttl;      // time to live
+    unsigned short  rr_rdlen;    // length in octets of the RDATA field
+    unsigned int    ip_addr;       // RDATA, which is a ip address
 
-    // Pack and unpack RDATA, get m_ip
+    // Pack and unpack RDATA, get ip_addr
     bool dataFromBuffer(unsigned char* buf, size_t size, size_t& offset);
 };
 
 class Message
 {
 //    +---------------------+
-//    |        Header       |
+//    |        msg_header       |
 //    +---------------------+
-//    |       Question      | the question for the name server
+//    |       Question      | the question for the rr_name server
 //    +---------------------+
 //    |        Answer       | RRs answering the question
 //    +---------------------+
@@ -225,14 +225,14 @@ public:
     bool    fromBuffer(unsigned char* buf, size_t size); // read from buffer
 
 
-    inline dns::Header& header() {return m_header; };
+    inline dns::Header& header() {return msg_header; };
     std::string toString(); // convert to string
     std::string getOneAddress(); // return one from possible many address
 
 protected:
-    dns::Header m_header;
-    std::list<dns::Question*> m_questions;
-    std::list<dns::ResourceRecord*> m_answers;
+    dns::Header msg_header;
+    std::list<dns::Question*> questions;
+    std::list<dns::ResourceRecord*> resources;
     void clearList();
 };
 
